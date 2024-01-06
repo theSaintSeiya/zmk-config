@@ -25,7 +25,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mo 2>, <&to 2>;
+            bindings = <&mo 3>, <&to 3>;
         };
 
         custom_mt: custom_mt {
@@ -92,7 +92,7 @@
 
         combo_delete {
             bindings = <&kp DEL>;
-            key-positions = <69 33>;
+            key-positions = <70 73>;
             layers = <0>;
         };
     };
@@ -110,12 +110,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&kp F1                &kp F2  &kp F3  &kp F4  &kp F5                                                                                                                       &kp F6  &kp F7     &kp F8   &kp F9    &kp F10
-&trans                &trans  &trans  &trans  &trans  &trans                                                                                                       &trans  &trans  &trans     &trans   &trans    &trans
-&custom_mt LCTRL TAB  &kp Q   &kp W   &kp E   &kp R   &kp T                                                                                                        &kp Y   &kp U   &kp I      &kp O    &kp P     &kp BACKSPACE
-&kp ESC               &kp A   &kp S   &kp D   &kp F   &kp G                                                                                                        &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LEFT_ALT          &kp Z   &kp X   &kp C   &kp V   &kp B   &trans          &trans                    &trans          &trans    &trans   &trans                  &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp PERCENT
-&mo 3                 &trans  &trans  &trans  &trans          &kp LEFT_SHIFT  &custom_mt_mo 1 LEFT_GUI  &kp LEFT_GUI    &kp RALT  &kp RET  &custom_mt LCTRL SPACE          &trans  &trans     &trans   &trans    &kp PG_DN
+&kp F1                &kp F2  &kp F3  &kp F4  &kp F5                                                                                                                                    &kp F6  &kp F7     &kp F8   &kp F9    &kp F10
+&trans                &trans  &trans  &trans  &trans  &trans                                                                                                                    &trans  &trans  &trans     &trans   &trans    &trans
+&custom_mt LCTRL TAB  &kp Q   &kp W   &kp E   &kp R   &kp T                                                                                                                     &kp Y   &kp U   &kp I      &kp O    &kp P     &kp PERCENT
+&kp ESC               &kp A   &kp S   &kp D   &kp F   &kp G                                                                                                                     &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LEFT_ALT          &kp Z   &kp X   &kp C   &kp V   &kp B   &trans  &trans                       &trans          &trans    &trans                     &trans                  &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &trans
+&mo 4                 &trans  &trans  &trans  &trans          &mo 1   &custom_mt LEFT_SHIFT ENTER  &kp LEFT_GUI    &kp RALT  &custom_mt_mo 2 BACKSPACE  &custom_mt LCTRL SPACE          &trans  &trans     &trans   &trans    &kp PG_DN
             >;
         };
 
@@ -130,6 +130,19 @@
             >;
 
             label = "lower";
+        };
+
+        nav_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                                                                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+            >;
+
+            label = "nav";
         };
 
         lower_layer {
