@@ -28,10 +28,23 @@
             bindings = <&mo 2>, <&to 2>;
         };
 
-        timeless_mt: timeless_mt {
+        custom_mt: custom_mt {
             compatible = "zmk,behavior-hold-tap";
-            label = "TIMELESS_MT";
+            label = "CUSTOM_MT";
             bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-on-release;
+            require-prior-idle-ms = <150>;
+            quick-tap-ms = <175>;
+        };
+
+        custom_mt_mo: custom_mt_mo {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CUSTOM_MT_MO";
+            bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <150>;
@@ -97,12 +110,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-&kp F1        &kp F2  &kp F3  &kp F4  &kp F5                                                                                                       &kp F6  &kp F7     &kp F8   &kp F9    &kp F10
-&trans        &trans  &trans  &trans  &trans  &trans                                                                                       &trans  &trans  &trans     &trans   &trans    &trans
-&kp TAB       &kp Q   &kp W   &kp E   &kp R   &kp T                                                                                        &kp Y   &kp U   &kp I      &kp O    &kp P     &kp BACKSPACE
-&kp ESC       &kp A   &kp S   &kp D   &kp F   &kp G                                                                                        &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LEFT_ALT  &kp Z   &kp X   &kp C   &kp V   &kp B   &trans          &trans  &trans          &trans    &trans   &trans                    &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp PERCENT
-&mo 3         &trans  &trans  &trans  &trans          &kp LEFT_SHIFT  &mo 2   &kp LEFT_GUI    &kp RALT  &kp RET  &timeless_mt LCTRL SPACE          &trans  &trans     &trans   &trans    &kp PG_DN
+&kp F1                &kp F2  &kp F3  &kp F4  &kp F5                                                                                                                       &kp F6  &kp F7     &kp F8   &kp F9    &kp F10
+&trans                &trans  &trans  &trans  &trans  &trans                                                                                                       &trans  &trans  &trans     &trans   &trans    &trans
+&custom_mt LCTRL TAB  &kp Q   &kp W   &kp E   &kp R   &kp T                                                                                                        &kp Y   &kp U   &kp I      &kp O    &kp P     &kp BACKSPACE
+&kp ESC               &kp A   &kp S   &kp D   &kp F   &kp G                                                                                                        &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LEFT_ALT          &kp Z   &kp X   &kp C   &kp V   &kp B   &trans          &trans                    &trans          &trans    &trans   &trans                  &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp PERCENT
+&mo 3                 &trans  &trans  &trans  &trans          &kp LEFT_SHIFT  &custom_mt_mo 1 LEFT_GUI  &kp LEFT_GUI    &kp RALT  &kp RET  &custom_mt LCTRL SPACE          &trans  &trans     &trans   &trans    &kp PG_DN
             >;
         };
 
