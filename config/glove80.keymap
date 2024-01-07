@@ -51,6 +51,16 @@
             hold-trigger-on-release;
             require-prior-idle-ms = <200>;
         };
+
+        magic: magic {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MAGIC_HOLD_TAP";
+            bindings = <&mo>, <&rgb_ug_status_macro>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
     };
 
     macros {
@@ -76,6 +86,13 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&out OUT_BLE &bt BT_SEL 3>;
+        };
+
+        rgb_ug_status_macro: rgb_ug_status_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none>;
+            label = "RGB_UG_STATUS";
         };
     };
 
